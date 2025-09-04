@@ -2,17 +2,20 @@
   "name": "pkg-placeholder",
   "type": "module",
   "version": "0.0.0",
-  "packageManager": "pnpm@10.6.2",
+  "packageManager": "pnpm@10.15.1",
   "description": "_description_",
-  "author": "Anthony Fu <anthonyfu117@hotmail.com>",
+  "author": {
+    "name": "Miao Da",
+    "email": "ufo025174@gmail.com",
+    "url": "https://github.com/WitMiao"
+  },
   "license": "MIT",
-  "funding": "https://github.com/sponsors/antfu",
-  "homepage": "https://github.com/antfu/pkg-placeholder#readme",
+  "homepage": "https://github.com/WitMiao/starter-ts#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/antfu/pkg-placeholder.git"
+    "url": "git+https://github.com/WitMiao/starter-ts.git"
   },
-  "bugs": "https://github.com/antfu/pkg-placeholder/issues",
+  "bugs": "https://github.com/WitMiao/starter-ts/issues",
   "keywords": [],
   "sideEffects": false,
   "exports": {
@@ -30,21 +33,30 @@
     "dev": "unbuild --stub",
     "lint": "eslint",
     "prepublishOnly": "nr build",
-    "release": "bumpp && pnpm publish",
+    "release": "pnpm build && changeset publish",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "commitlint": "commitlint",
+    "commitlint:check": "commitlint --from HEAD~1 --to HEAD --verbose",
     "start": "tsx src/index.ts",
     "test": "vitest",
     "typecheck": "tsc --noEmit",
-    "prepare": "simple-git-hooks"
+    "prepare": "husky",
+    "update:deps": "pnpx taze major -r -w",
+    "codemod:catalog": "pnpx codemod pnpm/catalog && eslint pnpm-workspace.yaml --fix"
   },
   "devDependencies": {
     "@antfu/eslint-config": "catalog:cli",
     "@antfu/ni": "catalog:cli",
     "@antfu/utils": "catalog:inlined",
+    "@changesets/cli": "catalog:cli",
+    "@commitlint/cli": "catalog:cli",
+    "@commitlint/config-conventional": "catalog:cli",
+    "@commitlint/types": "catalog:cli",
     "@types/node": "catalog:types",
-    "bumpp": "catalog:cli",
     "eslint": "catalog:cli",
+    "husky": "catalog:cli",
     "lint-staged": "catalog:cli",
-    "simple-git-hooks": "catalog:cli",
     "tinyexec": "catalog:utils",
     "tsx": "catalog:cli",
     "typescript": "catalog:cli",
@@ -53,9 +65,6 @@
     "vitest": "catalog:testing",
     "vitest-package-exports": "catalog:testing",
     "yaml": "catalog:testing"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "pnpm i --frozen-lockfile --ignore-scripts --offline && npx lint-staged"
   },
   "lint-staged": {
     "*": "eslint --fix"
