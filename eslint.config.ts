@@ -1,9 +1,5 @@
-// @ts-check
-import antfu from '@antfu/eslint-config'
+import { eslintBase } from '@starter/eslint-config'
 
-export default antfu(
-  {
-    type: 'lib',
-    pnpm: true,
-  },
-)
+export default eslintBase({
+  type: 'lib',
+})
