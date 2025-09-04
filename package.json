@@ -68,8 +68,5 @@
     "vitest": "catalog:testing",
     "vitest-package-exports": "catalog:testing",
     "yaml": "catalog:testing"
-  },
-  "lint-staged": {
-    "*": "eslint --fix"
   }
 }
