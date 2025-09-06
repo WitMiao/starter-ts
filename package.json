@@ -54,8 +54,6 @@
     "@commitlint/cli": "catalog:cli",
     "@commitlint/config-conventional": "catalog:cli",
     "@commitlint/types": "catalog:cli",
-    "@starter/eslint-config": "workspace:*",
-    "@starter/tsconfig": "workspace:*",
     "@types/node": "catalog:types",
     "eslint": "catalog:cli",
     "husky": "catalog:cli",

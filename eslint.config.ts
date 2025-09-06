@@ -1,5 +1,8 @@
-import { eslintBase } from '@starter/eslint-config'
+import antfu from '@antfu/eslint-config'
 
-export default eslintBase({
-  type: 'lib',
-})
+export default antfu(
+  {
+    type: 'lib',
+    pnpm: true,
+  },
+)
